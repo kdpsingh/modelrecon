@@ -1,0 +1,222 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# modelrecon
+
+The goal of modelrecon is to apply thresholds to predicted probabilities and calculate net benefit in the presence of resource constraints.
+
+## Installation
+
+You can install the released version of modelrecon from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("modelrecon")
+```
+
+## Get started
+
+Let's load the package and generate and example dataset containing the probability of an adverse outcome and whether or not that outcome was experienced (`TRUE`) or not experienced (`FALSE`).
+
+```{r example}
+library(modelrecon)
+library(dplyr)
+
+example_data = data.frame(probability = c(0.8, 0.7, 0.6, 0.5, 0.3, 0.2, 0.1, 0.1, 0.05, 0.01),
+                          outcome = c(T, T, F, T, T, F, F, F, T, F))
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r cars}
+example_data %>%
+  apply_all(0.2) %>%
+  calculate_nb(verbose = TRUE)
+
+example_data %>%
+  apply_threshold(0.2) %>%
+  calculate_nb()
+
+example_data %>%
+  apply_threshold(0.2) %>%
+  apply_constraint(3) %>%
+  calculate_nb()
+
+
+example_data %>%
+  apply_threshold(0.2) %>%
+  apply_constraint(3) %>%
+  apply_threshold(0.5) %>%
+  calculate_nb()
+
+
+bind_rows(
+  example_data %>%
+  apply_threshold(0.5) %>%
+  apply_constraint(3) %>%
+  calculate_nb(),
+  example_data %>%
+    apply_threshold(0.6) %>%
+    apply_constraint(3) %>%
+    calculate_nb(),
+  example_data %>%
+    apply_threshold(0.7) %>%
+    apply_constraint(3) %>%
+    calculate_nb(),
+  example_data %>%
+    apply_threshold(0.8) %>%
+    apply_constraint(3) %>%
+    calculate_nb()
+)
+
+example_data %>%
+  apply_threshold(0.6) %>%
+  apply_constraint(3) %>%
+  apply_threshold(0.5) %>%
+  apply_constraint(Inf) %>%
+  calculate_nb()
+
+# Vary absolute constraint
+
+plot_data =
+  expand_grid(constraint = c(0, 1, 3, 5, 7, Inf),
+              threshold = seq(from = 0, to = 1, by = 0.05)) %>%
+                  # example_data %>%
+                  # distinct(probability) %>%
+                  # add_row(probability = 1) %>%
+                  # pull(probability)) %>%
+  group_by(constraint, threshold) %>%
+  mutate(net_benefit = example_data %>%
+           apply_threshold(threshold) %>%
+           apply_constraint(constraint) %>%
+           # apply_threshold(0.5) %>%
+           calculate_nb()) %>%
+  ungroup()
+
+plot_data %>%
+  mutate(constraint = as.factor(paste('Capacity =',constraint))) %>%
+  ggplot(aes(x = threshold, y = net_benefit)) +
+  geom_line() +
+  facet_wrap(~constraint) +
+  coord_cartesian(ylim = c(0, 0.5)) +
+  theme_bw() +
+  labs(x = 'Threshold probability',
+       y = 'Realized net benefit')
+
+# Vary absolute constraint and add relative constraint
+
+plot_data_2 =
+  expand_grid(constraint = c(0, 1, 3, 5, 7, Inf),
+              threshold = seq(from = 0, to = 1, by = 0.05)) %>%
+                # example_data %>%
+                # distinct(probability) %>%
+                # add_row(probability = 1) %>%
+                # pull(probability)) %>%
+  group_by(constraint, threshold) %>%
+  mutate(net_benefit = example_data %>%
+           apply_threshold(threshold) %>%
+           apply_constraint(constraint) %>%
+           apply_threshold(pmax(0.5, threshold)) %>%
+           calculate_nb()) %>%
+  ungroup()
+
+plot_data_2 %>%
+  mutate(constraint = as.factor(paste('Capacity =',constraint))) %>%
+  ggplot(aes(x = threshold, y = net_benefit)) +
+  geom_line() +
+  facet_wrap(~constraint) +
+  coord_cartesian(ylim = c(0, 0.5)) +
+  theme_bw() +
+  labs(x = 'Threshold probability',
+       y = 'Realized net benefit')
+
+bind_rows(
+  plot_data %>% mutate(constraint_type = 'Absolute constraint'),
+  plot_data_2 %>% mutate(constraint_type = paste0('Absolute constraint\n',
+                                                  'relaxed by relative\n',
+                                                  'constraint at threshold\n',
+                                                  'of 0.5'))
+) %>%
+  mutate(constraint = if_else(constraint == Inf, 'Infinity', as.character(constraint))) %>%
+  mutate(constraint = as.factor(paste('Capacity =',constraint))) %>%
+  filter(constraint == 'Capacity = 3') %>%
+  filter(threshold == 0.2) ->
+  point_data
+
+bind_rows(
+  plot_data %>% mutate(constraint_type = 'Absolute constraint'),
+  plot_data_2 %>% mutate(constraint_type = paste0('Absolute constraint\n',
+                                                  'relaxed by relative\n',
+                                                  'constraint at threshold\n',
+                                                  'of 0.5'))
+  ) %>%
+  mutate(constraint = if_else(constraint == Inf, 'Infinity', as.character(constraint))) %>%
+  mutate(constraint = as.factor(paste('Capacity =',constraint))) %>%
+  ggplot(aes(x = threshold, y = net_benefit,
+             linetype = constraint_type)) +
+  geom_line() +
+  geom_point(data = point_data) +
+  facet_wrap(~constraint) +
+  coord_cartesian(ylim = c(0, 0.5)) +
+  theme_bw() +
+  labs(x = 'Threshold probability',
+       y = 'Realized net benefit',
+       linetype = 'Constraint')
+
+ggsave('decision_curves_with_constraints_20221025.pdf',
+       width = 6.5, height = 4, units = 'in')
+
+set.seed(1)
+all_nbs = numeric(1000)
+for (i in 1:1000) {
+  all_nbs[i] =
+    example_data %>%
+    apply_all() %>%
+    dplyr::sample_frac(1) %>%
+    apply_constraint(3) %>%
+    calculate_nb(0.2)
+}
+mean(all_nbs)
+
+
+example_data2 = data.frame(prediction = c(T, T, T, T, T, F, T, F, T, T),
+                           outcome =    c(T, T, F, T, T, F, F, F, T, F))
+
+example_data2 %>%
+  calculate_nb(0.2)
+
+
+
+set.seed(2)
+all_nbs = numeric(1000)
+for (i in 1:1000) {
+  all_nbs[i] =
+    example_data2 %>%
+    dplyr::sample_frac(1) %>%
+    apply_constraint(3) %>%
+    calculate_nb(0.2)
+}
+mean(all_nbs)
+
+```
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
+
+You can also embed plots, for example:
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

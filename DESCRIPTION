@@ -1,0 +1,20 @@
+Package: modelrecon
+Title: Assessing Prediction Models in the Presence of Resource Constraints
+Version: 0.1.0
+Authors@R: 
+    person(given = "Karandeep",
+           family = "Singh",
+           role = c("aut", "cre"),
+           email = "kdpsingh@umich.edu",
+           comment = c(ORCID = "https://orcid.org/0000-0001-8980-2330"))
+Description: This package is designed to apply thresholds and calculate net
+    benefit in the presence of resource constraints.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    magrittr
+Suggests: 
+    rmarkdown
