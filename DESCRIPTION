@@ -18,3 +18,5 @@ Imports:
     magrittr
 Suggests: 
     rmarkdown
+URL: https://github.com/ML4LHS/modelrecon
+BugReports: https://github.com/ML4LHS/modelrecon/issues
