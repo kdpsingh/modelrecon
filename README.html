@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+<h1 id="modelrecon">modelrecon</h1>
+<p>The goal of modelrecon is to apply thresholds to predicted
+probabilities and calculate net benefit in the presence of resource
+constraints.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install the released version of modelrecon from GitHub
+with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;ML4LHS/modelrecon&#39;</span>)</span></code></pre></div>
+<h2 id="get-started">Get started</h2>
+<p>Let’s load the package and generate and example dataset containing
+the probability of an adverse outcome and whether or not that outcome
+was experienced (<code>TRUE</code>) or not experienced
+(<code>FALSE</code>).</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelrecon)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>example_data <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">probability =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.7</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>, <span class="fl">0.01</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>                          <span class="at">outcome =</span> <span class="fu">c</span>(T, T, F, T, T, F, F, F, T, F))</span></code></pre></div>
+<h2 id="what-does-our-example-dataset-look-like">What does our example
+dataset look like?</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>example_data</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    probability outcome</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         0.80    TRUE</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         0.70    TRUE</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         0.60   FALSE</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         0.50    TRUE</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         0.30    TRUE</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         0.20   FALSE</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7         0.10   FALSE</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8         0.10   FALSE</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9         0.05    TRUE</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10        0.01   FALSE</span></span></code></pre></div>
+<h2 id="lets-apply-a-threshold-of-02">Let’s apply a threshold of
+0.2</h2>
+<p>This means we will call all predictions with a probability &gt;= 0.2
+as <code>TRUE</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    probability outcome prediction met_threshold</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         0.80    TRUE       TRUE           0.2</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         0.70    TRUE       TRUE           0.2</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         0.60   FALSE       TRUE           0.2</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         0.50    TRUE       TRUE           0.2</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         0.30    TRUE       TRUE           0.2</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         0.20   FALSE       TRUE           0.2</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7         0.10   FALSE      FALSE            NA</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8         0.10   FALSE      FALSE            NA</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9         0.05    TRUE      FALSE            NA</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10        0.01   FALSE      FALSE            NA</span></span></code></pre></div>
+<h2 id="lets-calculate-a-net-benefit-with-a-threshold-of-02">Let’s
+calculate a net benefit with a threshold of 0.2</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.35</span></span></code></pre></div>
+<h2 id="what-is-going-on-behind-the-scenes">What is going on behind the
+scenes?</h2>
+<p>Behind the scenes, the <code>calculate_net_benefit()</code> function
+is calculating the number of true and false positives, and then using
+that along with the previously applied threshold to calculate the net
+benefit.</p>
+<h3 id="how-did-calculate_net_benefit-know-about-the-threshold">How did
+<code>calculate_net_benefit()</code> know about the threshold?</h3>
+<p>This information is captured in the <code>thresholds</code>
+attribute.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">attributes</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  .<span class="sc">$</span>thresholds</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.2</span></span></code></pre></div>
+<h3 id="want-more-information-about-the-number-of-true-and-false-positives">Want
+more information about the number of true and false positives?</h3>
+<p>Set the <code>verbose</code> argument of
+<code>calculate_net_benefit()</code> to <code>TRUE</code>. This will
+print, <em>not</em> return, a data frame with the information it used to
+calculate the net benefit. The value returned is still the net
+benefit.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>(<span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 5</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   met_threshold     n true_positives false_positives    nb</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;dbl&gt; &lt;int&gt;          &lt;int&gt;           &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1           0.2    10              4               2  0.35</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.35</span></span></code></pre></div>
+<h2 id="what-happens-when-you-apply-an-absolute-constraint">What happens
+when you apply an absolute constraint?</h2>
+<p>Two of the five predicted <code>TRUE</code> values are converted to
+<code>FALSE</code> because only the first 3 <code>TRUE</code> values
+(those with the highest predicted probability) are able to be acted
+upon.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="dv">3</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;    probability outcome prediction met_threshold</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1         0.80    TRUE       TRUE           0.2</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2         0.70    TRUE       TRUE           0.2</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 3         0.60   FALSE       TRUE           0.2</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 4         0.50    TRUE      FALSE            NA</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 5         0.30    TRUE      FALSE            NA</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 6         0.20   FALSE      FALSE            NA</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 7         0.10   FALSE      FALSE            NA</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 8         0.10   FALSE      FALSE            NA</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 9         0.05    TRUE      FALSE            NA</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 10        0.01   FALSE      FALSE            NA</span></span></code></pre></div>
+<h2 id="calculate-a-realized-net-benefit-with-a-threshold-of-02-and-an-capacity-of-3">Calculate
+a realized net benefit with a threshold of 0.2 and an capacity of 3</h2>
+<p>This is an example of an <em>absolute</em> constraint.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>(<span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 1 x 5</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   met_threshold     n true_positives false_positives    nb</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;dbl&gt; &lt;int&gt;          &lt;int&gt;           &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1           0.2    10              2               1 0.175</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.175</span></span></code></pre></div>
+<h2 id="calculate-a-realized-net-benefit-with-an-absolute-threshold-of-02-and-capacity-of-3-and-then-a-relative-constraint-of-05">Calculate
+a realized net benefit with an absolute threshold of 0.2 and capacity of
+3, and <em>then</em> a relative constraint of 0.5:</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>(<span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # A tibble: 2 x 5</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   met_threshold     n true_positives false_positives    nb</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;           &lt;dbl&gt; &lt;int&gt;          &lt;int&gt;           &lt;int&gt; &lt;dbl&gt;</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 1           0.2    10              2               1 0.175</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; 2           0.5    10              1               0 0.1</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.275</span></span></code></pre></div>
+<h2 id="the-default-assumption-when-we-set-a-threshold-without-a-subsequent-constraint-is-that-the-capacity-is-infinite">The
+default assumption when we set a threshold without a subsequent
+constraint is that the capacity is infinite.</h2>
+<p>You can also explicitly note the infinite capacity, which will be
+applied only to the immediate prior threshold.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="cn">Inf</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>()</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.275</span></span></code></pre></div>
+<p>Using this mechanism, you can construct multiple layers of absolute
+and relative constraints as the piped functions retain metadata about
+prior constraints and thus know that each constraint applies to only the
+prior threshold.</p>
+<p>You <em>cannot</em> apply a threshold that is <em>lower</em> than a
+prior threshold because it would make no sense to apply a permissive
+criterion <em>before</em> a more restrictive one.</p>
+<h2 id="setting-a-new-threshold-that-is-lower-than-the-prior-one-will-generate-an-error">Setting
+a new threshold that is lower than the prior one will generate an
+error.</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.5</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>()</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Error in apply_threshold(., 0.2): New threshold must be greater than previous maximum threshold of 0.5</span></span></code></pre></div>
+<h2 id="setting-a-new-threshold-that-is-the-same-as-a-prior-one-will-generate-a-warning">Setting
+a new threshold that is the same as a prior one will generate a
+warning.</h2>
+<p>In a future version, this may be upgraded to an error.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>example_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_constraint</span>(<span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply_threshold</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_net_benefit</span>()</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Warning in apply_threshold(., 0.2): New threshold must be greater than previous maximum threshold of 0.2. Because the current threshold</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; is equal set threshold, previously added constraints at this threshold have been overwritten.</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 0.35</span></span></code></pre></div>
+<h1 id="lets-plot-a-decision-curve-for-an-absolute-constraint-and-an-absolute--relative-constraint">Let’s
+plot a decision curve for an absolute constraint, and an absolute +
+relative constraint</h1>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">=</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_grid</span>(<span class="at">constraint =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="cn">Inf</span>),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">threshold =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.05</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(constraint, threshold) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">net_benefit =</span> example_data <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>           <span class="fu">apply_threshold</span>(threshold) <span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">apply_constraint</span>(constraint) <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>           <span class="fu">calculate_net_benefit</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Vary absolute constraint and add relative constraint (up to threshold of 0.5)</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>plot_data_2 <span class="ot">=</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_grid</span>(<span class="at">constraint =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="cn">Inf</span>),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">threshold =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="fl">0.5</span>, <span class="at">by =</span> <span class="fl">0.05</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(constraint, threshold) <span class="sc">%&gt;%</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">net_benefit =</span> example_data <span class="sc">%&gt;%</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>           <span class="fu">apply_threshold</span>(threshold) <span class="sc">%&gt;%</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>           <span class="fu">apply_constraint</span>(constraint) <span class="sc">%&gt;%</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>           <span class="fu">apply_threshold</span>(<span class="fu">pmax</span>(<span class="fl">0.5</span>, threshold)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>           <span class="fu">calculate_net_benefit</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  plot_data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">constraint_type =</span> <span class="st">&#39;Absolute constraint&#39;</span>),</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  plot_data_2 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">constraint_type =</span> <span class="fu">paste0</span>(<span class="st">&#39;Absolute constraint</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">&#39;relaxed by relative</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">&#39;constraint at threshold</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">&#39;of 0.5&#39;</span>))</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">constraint =</span> <span class="fu">if_else</span>(constraint <span class="sc">==</span> <span class="cn">Inf</span>, <span class="st">&#39;Infinity&#39;</span>, <span class="fu">as.character</span>(constraint))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">constraint =</span> <span class="fu">as.factor</span>(<span class="fu">paste</span>(<span class="st">&#39;Capacity =&#39;</span>,constraint))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>((constraint <span class="sc">==</span> <span class="st">&#39;Capacity = 3&#39;</span> <span class="sc">&amp;</span> threshold <span class="sc">==</span> <span class="fl">0.2</span>) <span class="sc">|</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>           (constraint <span class="sc">==</span> <span class="st">&#39;Capacity = Infinity&#39;</span> <span class="sc">&amp;</span> threshold <span class="sc">==</span> <span class="fl">0.2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">&#39;Case study 2&#39;</span>, <span class="st">&#39;Case study 1&#39;</span>, <span class="st">&#39;Case study 3&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.4</span>, <span class="fl">0.33</span>)) <span class="ot">-&gt;</span> </span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  point_data</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  plot_data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">constraint_type =</span> <span class="st">&#39;Absolute constraint&#39;</span>),</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  plot_data_2 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">constraint_type =</span> <span class="fu">paste0</span>(<span class="st">&#39;Absolute constraint</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">&#39;relaxed by relative</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">&#39;constraint at threshold</span><span class="sc">\n</span><span class="st">&#39;</span>,</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>                                                  <span class="st">&#39;of 0.5&#39;</span>))</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">constraint =</span> <span class="fu">if_else</span>(constraint <span class="sc">==</span> <span class="cn">Inf</span>, <span class="st">&#39;Infinity&#39;</span>, <span class="fu">as.character</span>(constraint))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">constraint =</span> <span class="fu">as.factor</span>(<span class="fu">paste</span>(<span class="st">&#39;Capacity =&#39;</span>,constraint))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> threshold, <span class="at">y =</span> net_benefit,</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>             <span class="at">linetype =</span> constraint_type)) <span class="sc">+</span></span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> point_data) <span class="sc">+</span></span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">data =</span> point_data,</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>            <span class="fu">aes</span>(<span class="at">label =</span> text, <span class="at">x =</span> x, <span class="at">y =</span> y), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>constraint) <span class="sc">+</span></span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">6</span>)) <span class="sc">+</span></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&#39;Threshold probability&#39;</span>,</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&#39;Realized net benefit&#39;</span>,</span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>       <span class="at">linetype =</span> <span class="st">&#39;Constraint&#39;</span>)</span></code></pre></div>
+<img src="data:image/png;base64,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" width="100%" />
+
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave(&#39;Figure 2.pdf&#39;,</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        width = 6.5, height = 4, units = &#39;in&#39;)</span></span></code></pre></div>
+
+</body>
+</html>

@@ -18,7 +18,7 @@ NULL
 #' @export
 #'
 #' @examples
-calculate_nb = function(data, verbose = FALSE) {
+calculate_net_benefit = function(data, verbose = FALSE) {
   data %>%
     mutate(n = n()) %>%
     filter(!is.na(met_threshold)) %>%
@@ -137,8 +137,10 @@ apply_all = function(data, threshold) {
 #' applies to the most recently set threshold. This allows [apply_threshold()]
 #' and `apply_constraint()` to be chained together multiple times using pipes.
 #'
-#' @param data
-#' @param capacity
+#' @param data A data frame resulting from [apply_threshold()]
+#' @param capacity A number specifying the capacity, where `0` means no capacity
+#'   (the model cannot be acted upon), and `Inf` means infinite capacity (there
+#'   is no constraint).
 #'
 #' @return A data frame with an altered set of predictions based on the
 #'   specified capacity. For patients whose predictions were converted from
